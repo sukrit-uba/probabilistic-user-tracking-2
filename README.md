@@ -52,3 +52,16 @@ The whole algorithm is as follows:<br>
 2. Then we construct a graph where the nodes are all the entries in the dataset, then we add connections between the users with same ip using the groups formed in step 1. Then we get a graph of users where all the similar users are connected within each other. <br>
 3. Then we perform pairwise similarity between all possible pairs from the whole dataset, if a pair has a score that surpasses out threshold then we add a connection between those pairs too. Then what we get is all the similar users connected to each other. <br>
 4. Then we can extract all the connected sub-graphs where each sub-graph can be identified as a unique user. <br>
+
+## Shortcomings of the algorithm
+Although the approach is able to give good results, performing pairwise comparison for all possible pairs from a big dataset is really computationally heavy. Using multiple processes on multiple cores speeds up the process but still for a big dataset the execution time is huge. <br>
+
+On a machine with 4 cores, the execution time using multiple processes is as follows. For the experiment only a part of dataset was used which contained only 1000 records.<br>
+
+Number of processes | Execution time in seconds
+------------ | -------------
+1 | 428.39
+2 | 356.63
+4 | 289.82
+8 | 304.68
+16 | 334.78
