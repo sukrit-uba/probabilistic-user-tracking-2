@@ -13,6 +13,7 @@ For example, the following urls are from the same site, but when we do stringwis
 * https://www.youngliving.com/vo/ 
 * https://www.youngliving.com/en_US
 * https://www.youngliving.com/en_US/products/usb-orb-diffuser<br>
+
 So we do a simple transformation just to extract the main root url which would be https://www.youngliving.com, so that we could treat the users who visited this site to be candidates to similar users. <br>
 
 Below is the python code for the similarity function:
@@ -39,7 +40,7 @@ def similarity_score(a,b):
 The function receives 2 different records from the users dataframe, first we check the difference in timestamp. If it’s less than or equal to 300s (which is equal to 5 mins), then we store assign the value 1 to the first index in the list score. Then we compare the user_agents, if they are the same then we assign the value 1 to the second index in the list score. Then at last we compare the transformed x_ec_custom_1 of the 2 users, if they are the same then we assign the value 1 to the last index in the list score. <br>
 Then we have a weights list which species how important a feature is in determining the similarity of the users. We multiply our score list with the weights list and sum all the elements together. Then we divide the whole sum by the highest possible score to get our normalized similarity score. <br>
 
-The whole algorithm is as follows:
+The whole algorithm is as follows:<br>
 1. Group the data by unique ip addresses first which divides the whole dataset into groups which contain users with same ip addresses 
 2. Then we construct a graph where the nodes are all the entries in the dataset, then we add connections between the users with same ip using the groups formed in step 1. Then we get a graph of users where all the similar users are connected within each other.
 3. Then we perform pairwise similarity between all possible pairs from the whole dataset, if a pair has a score that surpasses out threshold then we add a connection between those pairs too. Then what we get is all the similar users connected to each other. 
