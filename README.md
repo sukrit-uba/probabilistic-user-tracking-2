@@ -9,7 +9,8 @@ small.log contains first 1000 records from the bigger log file <br>
 get_users.py retrives the details of users grouped together by the algorithm <br>
 
 results contains an example group of similar users as predicted by the algorithm <br>
-
+## Dependencies
+Anaconda 4.3.0 - python3.5
 ## Grouping by unique ips and pairwise similarity
 The approach taken here is to first group together the users by unique ip first as a unique ip indicates a unique user. Also the same user can access the web using a different device or ip so pairwise similarity is also computed to find the similar users based on their browsing pattern.<br>
 In order to capture the same user browsing from a different ip, a similarity function is constructed which takes into account the following features from the log files:
