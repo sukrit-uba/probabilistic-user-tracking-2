@@ -41,7 +41,7 @@ The function receives 2 different records from the users dataframe, first we che
 Then we have a weights list which species how important a feature is in determining the similarity of the users. We multiply our score list with the weights list and sum all the elements together. Then we divide the whole sum by the highest possible score to get our normalized similarity score. <br>
 
 The whole algorithm is as follows:<br>
-1. Group the data by unique ip addresses first which divides the whole dataset into groups which contain users with same ip addresses 
-2. Then we construct a graph where the nodes are all the entries in the dataset, then we add connections between the users with same ip using the groups formed in step 1. Then we get a graph of users where all the similar users are connected within each other.
-3. Then we perform pairwise similarity between all possible pairs from the whole dataset, if a pair has a score that surpasses out threshold then we add a connection between those pairs too. Then what we get is all the similar users connected to each other. 
-4. Then we can extract all the connected sub-graphs where each sub-graph can be identified as a unique user.
+1. Group the data by unique ip addresses first which divides the whole dataset into groups which contain users with same ip addresses <br>
+2. Then we construct a graph where the nodes are all the entries in the dataset, then we add connections between the users with same ip using the groups formed in step 1. Then we get a graph of users where all the similar users are connected within each other. <br>
+3. Then we perform pairwise similarity between all possible pairs from the whole dataset, if a pair has a score that surpasses out threshold then we add a connection between those pairs too. Then what we get is all the similar users connected to each other. <br>
+4. Then we can extract all the connected sub-graphs where each sub-graph can be identified as a unique user. <br>
